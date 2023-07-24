@@ -1,0 +1,27 @@
+reset;
+model task_C_model.mod;
+data task_C_data_1.dat;
+option solver cplex;
+solve;
+display z, x, w, y;
+
+reset;
+model task_C_model.mod;
+data task_C_data_2.dat;
+option solver cplex;
+solve;
+display z, x, w, y;
+
+reset;
+model task_C_model.mod;
+data task_C_data_3.dat;
+option solver cplex;
+solve;
+display z, x, w, y;
+
+reset;
+model task_C_model_2.mod;
+data task_C_data_4.dat;
+option solver cplex;
+solve;
+display z, x, w, y;

@@ -1,0 +1,82 @@
+# Modified data task B 2: scenario 4
+
+# defining sets
+set CRUD := C1, C2, C3, C4;					  # crude oil
+set GGAS := G1, G2, G3, G4, G5;				  # gas
+set MARK := M1, M2, M3;						  # market
+set CONT := O, S;							  # contents (octane & sulfur)
+
+# defining parameters
+param A:=#------------------------------------# available crude oil
+C1 25000
+C2 15000
+C3 1800
+C4 3200
+;
+
+param D:#-------------------------------------# demand in markets
+ 	M1		M2 		M3 :=
+G1	3000	2500	5000
+G2	3000	2000	4250
+G3	1500	1000	3000
+G4	2000	2000	4000
+G5	1000	1000	2000
+;
+
+param S:#-------------------------------------# sales price
+ 	M1	M2	M3 :=
+G1	75	75	80
+G2	75	80	85
+G3	75	85	90
+G4	85	90	95
+G5	90	92	95
+;
+
+param P:=#------------------------------------# purchase price
+C1	45
+C2	40
+C3	55
+C4	50
+;
+
+param C:=#------------------------------------# production cost
+G1	6
+G2	6
+G3	5
+G4	7
+G5	8
+;
+
+param R:#-------------------------------------# contents in crude oil
+	O 	S :=
+C1	94	0.01
+C2	90	0.02
+C3	98	0.001
+C4	96	0.003
+;
+
+param L:#-------------------------------------# minimum contents in gas
+ 	O	S :=
+G1	88	0
+G2	90	0
+G3	92	0
+G4	94	0
+G5	96	0
+;
+
+param H:#-------------------------------------# maximum contents in gas
+ 	O 		S:=
+G1	100		0.02	
+G2	100		0.015	
+G3	100		0.012	
+G4	100		0.008	
+G5	100		0.005	
+;
+
+param W:=#------------------------------------# workhours per barrel
+G1	0.01
+G2	0.01
+G3	0.01
+G4	0.02
+G5	0.02
+;

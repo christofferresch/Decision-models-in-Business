@@ -1,0 +1,52 @@
+reset;#-----------------# Original data
+model task_B_model.mod;
+data task_B_data_0.dat;
+option solver cplex;
+solve;
+display z; 
+display u;
+display w;
+display v;
+display r;
+
+reset;#-----------------# Scenario 1
+model task_B_model.mod;
+data task_B_data_1.dat;
+option solver cplex;
+solve;
+display z; 
+display u;
+display w;
+display v;
+display r;
+
+reset;#-----------------# Scenario 2
+model task_B_model.mod;
+data task_B_data_2.dat;
+option solver cplex;
+solve;
+display z; 
+display u;
+display w;
+display v;
+display r;
+
+reset;#-----------------# Scenario 3
+model task_B_model.mod;
+data task_B_data_3.dat;
+option solver cplex;
+solve;
+display z; 
+display u;
+display w;
+display v;
+display r;
+
+reset;#-----------------# Scenario 4
+model task_B_model.mod;
+data task_B_data_0.dat;
+option solver cplex;
+option presolve 0;
+option cplex_options "sensitivity";
+solve;
+display RawAvail,RawAvail.down,RawAvail.current,RawAvail.up, RawAvail.slack;

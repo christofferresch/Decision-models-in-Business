@@ -1,0 +1,39 @@
+# task A 1
+reset;
+model project_3_task_A_1.mod;
+data project_3_task_A_1.dat;
+option solver minos;
+solve;
+display Q, S, p;
+
+# task A 2
+reset;
+model project_3_task_A_2.mod;
+data project_3_task_A_1.dat;
+option solver minos;
+solve;
+display Q, S, p;
+
+# task A 3 a
+reset;
+model project_3_task_A_3a.mod;
+data project_3_task_A_3.dat;
+option solver minos;
+solve;
+display Q, S, p;
+
+# task A 3 b
+reset;
+model project_3_task_A_3b.mod;
+data project_3_task_A_3.dat;
+option solver minos;
+solve;
+display Q, S, p;
+
+# task A 3 c
+reset;
+model project_3_task_A_3c.mod;
+data project_3_task_A_3.dat;
+option solver minos;
+solve;
+display Q, S, p;

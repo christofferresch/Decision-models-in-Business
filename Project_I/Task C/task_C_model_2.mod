@@ -1,0 +1,45 @@
+# BAN402 - Assignment 1 - task C 3 scenario 3, reduced supply and max level unsatisfied demand
+
+# defining sets
+set REGI;#------------------------------------- # regions
+set PORT;										# ports
+set MARK;										# markets
+
+# defining parameters with non-negativity
+param s{REGI} >= 0;#----------------------------# available supply in the regions
+param d{MARK} >= 0; 	 						# amounts demanded in the markets
+param c{REGI,MARK} >= 0;   						# cost per 1000kg from region to market
+param e{REGI,PORT} >= 0;						# cost per 1000kg from region to port
+param g{PORT,MARK} >= 0;						# cost per 1000kg from port to market
+param mud{MARK};  								# maximum unsatisfied demand in market
+
+# defining variables with non-negativity
+var x{REGI,MARK} >= 0;#-------------------------# quantity from region to market
+var y{REGI,PORT} >= 0;							# quantity from region to port
+var w{PORT,MARK} >= 0;							# quantity from port to market
+
+# defining objective function
+minimize z:#------------------------------------# minimize cost
+   sum {i in REGI, j in MARK} c[i,j] * x[i,j]+  # cost of transport from region to market
+   sum {i in REGI, k in PORT} e[i,k] * y[i,k]+  # cost of transport from region to port
+   sum {k in PORT, j in MARK} g[k,j] * w[k,j];  # cost of transport from port to market
+
+# defining constraints   
+subject to
+
+SupplyCap {i in REGI}:#--------------------------------------# total quantity sent from region
+   sum {j in MARK} x[i,j] +  sum {k in PORT} y[i,k] <= s[i]; # less or equal to available supply
+
+TransShip {k in PORT}:#--------------------------------------# total quantity recieved in port
+   sum {i in REGI} y[i,k] -  sum {j in MARK} w[k,j] = 0;     # sent to markets (no storage)
+
+MaxDem {j in MARK}:#-----------------------------------------# total quantity sent to markets
+   sum {i in REGI} x[i,j] +  sum {k in PORT} w[k,j] <= d[j]; # less than or equal to demand
+
+MinDem {j in MARK}:#-----------------------------------------# total quantity sent to markets
+   sum {i in REGI} x[i,j] +  								 # greater or equal to minimum
+   sum {k in PORT} w[k,j] >= d[j] * (1-mud[j]);  			 # satisfied demand in market
+
+MaxTrans {i in REGI}:#---------------------------------------# total amount sent to market
+   sum {j in MARK} x[i,j] +  								 # must be equal to available supply
+   sum {k in PORT} y[i,k] =  s[i]

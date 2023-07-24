@@ -1,0 +1,31 @@
+# task C1
+reset;
+model project_2_task_C_1.mod;
+data project_2_task_C.dat;
+option solver cplex;
+solve;
+display Gmode, y, IO, IC, IP, profit;
+
+# task C2 scenario 1 (10%)
+reset;
+model project_2_task_C_2.1.mod;
+data project_2_task_C.dat;
+option solver cplex;
+solve;
+display x,Gmode, profit;
+
+# task C2 scenario 2 (30%)
+reset;
+model project_2_task_C_2.2.mod;
+data project_2_task_C.dat;
+option solver cplex;
+solve;
+display x,Gmode, profit;
+
+# task C2 scenario 3 (50%)
+reset;
+model project_2_task_C_2.3.mod;
+data project_2_task_C.dat;
+option solver cplex;
+solve;
+display x,Gmode, profit;

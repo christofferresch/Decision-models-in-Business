@@ -1,0 +1,43 @@
+# Original data task C 1 
+
+# defining sets
+set REGI := R1 R2;							   # regions
+set PORT := P1 P2;							   # ports
+set MARK := K1 K2 K3 K4 K5 K6 K7 K8 K9 K10;	   # markets
+
+# defining parameters
+param s :=#------------------------------------# supply
+R1  150
+R2  200
+;
+
+param d :=#------------------------------------# demand
+K1  24
+K2	30
+K3  40
+K4	35
+K5	15
+K6  52
+K7	42
+K8  12
+K9	20
+K10	40
+;
+
+param c:#------------------------------------# cost of transport from region to market
+	K1 K2 K3 K4 K5 K6 K7 K8 K9 K10 :=
+R1	78	108	216	120	210	144	252	252	126	30
+R2	108	96	108	36	108	180	144	150	162	72
+;
+
+param g:#------------------------------------# cost of transport from port to market
+    K1	K2	K3	K4	K5	K6	K7	K8	K9	K10 :=
+P1	12	12	28	56	56	28	120	116	24	32
+P2	112	68	20	32	28	80	36	28	128	112
+;
+
+param e:#------------------------------------# cost of transport from region to port
+    P1	P2 :=
+R1	10	13
+R2	15	12
+;

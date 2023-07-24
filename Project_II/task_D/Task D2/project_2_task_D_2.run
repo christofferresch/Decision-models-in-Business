@@ -1,0 +1,8 @@
+reset;
+model project_2_task_D_2.mod;
+data project_2_task_D_2.dat;
+option solver gurobi;
+option gurobi_options 'outlev=1';
+option show_stats 1;
+solve;
+display cost,o,r,i,z,b,x,v,a,c > results.txt;

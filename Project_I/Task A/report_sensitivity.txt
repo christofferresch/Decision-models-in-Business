@@ -1,0 +1,31 @@
+total_cost = 2730.77
+F1 = 11.5385
+F2 = 119.231
+F3 = 0
+
+pollutant1 = 23.0769
+pollutant1.down = 7.77778
+pollutant1.current = 25
+pollutant1.up = 28
+
+pollutant2 = 61.5385
+pollutant2.down = 31.25
+pollutant2.current = 35
+pollutant2.up = 112.5
+
+F1.down = 10
+F1.current = 30
+F1.up = 36
+
+F2.down = 16.6667
+F2.current = 20
+F2.up = 25.3333
+
+F3.down = 27.6923
+F3.current = 40
+F3.up = 1e+20
+
+F1.rc = -3.55271e-15
+F2.rc = 0
+F3.rc = 12.3077
+

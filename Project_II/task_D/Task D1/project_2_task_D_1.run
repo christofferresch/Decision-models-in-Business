@@ -1,0 +1,20 @@
+reset;
+model project_2_task_D_1_min.mod;
+data project_2_task_D_1.dat;
+option solver gurobi;
+option gurobi_options 'outlev=1';
+option show_stats 1;
+solve;
+display z,x,v,b,a,c > resultsWhereMinimizing.txt;
+display x,v,z;
+
+reset;
+model project_2_task_D_1_max.mod;
+data project_2_task_D_1.dat;
+option solver gurobi;
+option gurobi_options 'outlev=1';
+option show_stats 1;
+solve;
+display z,x,v,b,a,c > resultsWhereMaximizing.txt;
+option omit_zero_rows 1;
+display x,v,z;
